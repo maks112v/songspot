@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import GlobalStyle from "../components/GlobalStyle";
+import "../firebase";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
