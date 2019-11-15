@@ -6,8 +6,11 @@ export default function GlobalStyle() {
     <Style
       rules={{
         body: {
+          backgroundColor: "#F4F7FD",
           margin: 0,
-          padding: 0
+          padding: 0,
+          fontFamily: "Roboto",
+          boxSizing: "border-box"
         }
       }}
     />
