@@ -1,8 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import GlobalStyle from "../components/GlobalStyle";
-import "../firebase";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import Store from "../components/useStore";
 
 const theme = createMuiTheme({
   palette: {
@@ -15,7 +12,7 @@ const theme = createMuiTheme({
   }
 });
 
-class MyDocument extends Document {
+export default class extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
@@ -24,28 +21,23 @@ class MyDocument extends Document {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <Store>
-          <Html>
-            <Head>
-              <link
-                rel="stylesheet"
-                href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-              />
-              <link
-                rel="stylesheet"
-                href="https://fonts.googleapis.com/icon?family=Material+Icons"
-              />
-            </Head>
-            <body>
-              <Main />
-              <NextScript />
-            </body>
-            <GlobalStyle />
-          </Html>
-        </Store>
+        <Html>
+          <Head>
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            />
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            />
+          </Head>
+          <body>
+            <Main />
+            <NextScript />
+          </body>
+        </Html>
       </ThemeProvider>
     );
   }
 }
-
-export default MyDocument;
