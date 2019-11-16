@@ -3,8 +3,8 @@ import Radium from "radium";
 import firebase from "firebase";
 import { Input, TextField, Typography } from "@material-ui/core";
 
-function Index({ categoriesQuery }) {
-  console.log(categoriesQuery);
+function Index({ ...rest }) {
+  console.log(rest);
   return (
     <div>
       <section
@@ -49,7 +49,7 @@ function Index({ categoriesQuery }) {
   );
 }
 
-export default Radium(Index);
+export default Index;
 
 Index.getInitialProps = async ({ query }) => {
   // const categoriesQuery = await firebase
@@ -58,5 +58,5 @@ Index.getInitialProps = async ({ query }) => {
   //   .get();
   console.log("ran");
 
-  return { categoriesQuery, test: "test" };
+  return { test: "test" };
 };
